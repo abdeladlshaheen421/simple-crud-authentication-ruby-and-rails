@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lab1</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+   <nav class="navbar navbar-expand-lg navbar-light bg-secondary ">
+  <div class="container-fluid">
+    <a class="navbar-brand text-light" href="#">Blog</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav text-light d-flex flex-row">
+        <li class="nav-item">
+        <%= link_to "Home", "/",class: "nav-link active text-light" %>
+        </li>
+        <% unless user_signed_in? %>
+            <li class="nav-item">
+            <%= link_to "Sign In", new_user_session_path,class: "nav-link text-light" %>
+            </li>
+
+            <li class="nav-item">
+            <%= link_to "Sign Up", new_user_registration_path,class: "nav-link text-light" %>
+            </li>
+        <% else %>
+            <li class="nav-item ms-auto">
+            <%= button_to "Sign Out", destroy_user_session_path, method: :delete,class: "text-light btn btn-danger" %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <%= yield %>
+  </body>
+</html>

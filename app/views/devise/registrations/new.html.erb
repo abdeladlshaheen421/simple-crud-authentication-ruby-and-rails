@@ -1,0 +1,44 @@
+<h2 class="text-center my-3">Sign up</h2>
+<div class="form w-50 p-3 mx-auto bg-light rounded shadow-lg">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.label :email , class:"form-label" %><br />
+      <%= f.email_field :email, autofocus: true, class: "form-control" %>
+    <% if @user.errors.include?(:email) %>
+      <div class="text-center text-danger">
+        please enter a valid email address (required)
+      </div>
+    <% end %>
+    
+    </div>
+
+    <div class="field my-2">
+      <%= f.label :password , class:"form-label"  %>
+      <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+      <% if @user.errors.include?(:password) %>
+      <div class="text-center text-danger">
+        please enter a valid password , min 6 characters (required)
+      </div>
+    <% end %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation , class:"form-label"  %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class:"form-control" %>
+      <% if @user.errors.include?(:password_confirmation) %>
+      <div class="text-center text-danger">
+        his field does not match the password field (required)
+      </div>
+    <% end %>
+    </div>
+
+    <div class="actions">
+      <div class="d-flex justify-content-center my-3 align-items-center">
+        <%= f.submit "Sign up" , class:"btn btn-primary mx-3" %>
+        already have an account? <%= link_to "Sign in", new_session_path(resource_name), class:"mx-3 bg-light" %>
+      </div>
+    </div>
+  <% end %>
+
+  
+</div>

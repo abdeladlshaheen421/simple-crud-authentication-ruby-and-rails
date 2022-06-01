@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @dsl %>
+
+<div>
+  <%= link_to "Edit this dsl", edit_dsl_path(@dsl) %> |
+  <%= link_to "Back to dsls", dsls_path %>
+
+  <%= button_to "Destroy this dsl", @dsl, method: :delete %>
+</div>

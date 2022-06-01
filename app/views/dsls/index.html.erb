@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Dsls</h1>
+
+<div id="dsls">
+  <% @dsls.each do |dsl| %>
+    <%= render dsl %>
+    <p>
+      <%= link_to "Show this dsl", dsl %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New dsl", new_dsl_path %>

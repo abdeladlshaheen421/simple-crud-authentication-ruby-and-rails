@@ -1,0 +1,30 @@
+<h2 class="text-center my-3">Log in</h2>
+<div class="form w-50 p-3 mx-auto bg-light rounded shadow-lg d-flex flex-column justify-content-center align-items-center">
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+  <div class="field">
+    <%= f.label :email, class:"form-label" %><br />
+    <%= f.email_field :email, autofocus: true, class:"form-input" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, class:"form-label"%><br />
+    <%= f.password_field :password, class:"form-input" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+  <div class="actions">
+      <div class="d-flex justify-content-center my-3 align-items-center">
+        <%= f.submit "Log in" , class:"btn btn-primary mx-3" %>
+        to register  <%= link_to "sign up", new_user_registration_path , class:"mx-3 bg-light"  %>
+      </div>
+  </div>
+
+<% end %>
+</div>
